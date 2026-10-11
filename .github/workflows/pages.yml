@@ -42,7 +42,9 @@ jobs:
           test -f _site/ui/romance/bust-louis-v12.webp
           test -f _site/ui/romance/bust-iris-v12.webp
           test -f _site/ui/romance/bust-enzo-v12.webp
-          test -f _site/player/avatar-atlas-v12-final.webp
+          for avatar in {01..10}; do
+            test -f "_site/player/fixed-v13/avatar-${avatar}.webp"
+          done
           test -f _site/index.html
           test -f _site/.nojekyll
 
