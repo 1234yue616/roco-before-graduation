@@ -37,6 +37,12 @@ jobs:
             sha256sum --check --strict game-update.zip.sha256
             unzip -oq game-update.zip -d _site
           fi
+          sha256sum --check --strict release-art.sha256
+          cp -R release-art/. _site/
+          test -f _site/ui/romance/bust-louis-v12.webp
+          test -f _site/ui/romance/bust-iris-v12.webp
+          test -f _site/ui/romance/bust-enzo-v12.webp
+          test -f _site/player/avatar-atlas-v12-final.webp
           test -f _site/index.html
           test -f _site/.nojekyll
 
