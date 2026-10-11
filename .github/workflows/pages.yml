@@ -31,6 +31,12 @@ jobs:
         run: |
           sha256sum --check --strict game-release.zip.sha256
           unzip -q game-release.zip -d _site
+          if [[ -f game-update.zip || -f game-update.zip.sha256 ]]; then
+            test -f game-update.zip
+            test -f game-update.zip.sha256
+            sha256sum --check --strict game-update.zip.sha256
+            unzip -oq game-update.zip -d _site
+          fi
           test -f _site/index.html
           test -f _site/.nojekyll
 
